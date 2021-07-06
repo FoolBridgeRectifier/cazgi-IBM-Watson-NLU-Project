@@ -4,6 +4,7 @@ import EmotionTable from './EmotionTable.js';
 import React from 'react';
 import axios from 'axios';
 
+
 class App extends React.Component {
   state = {innercomp:<textarea rows="4" cols="50" id="textinput"/>,
             mode: "text",
@@ -37,7 +38,6 @@ class App extends React.Component {
     this.setState({sentiment:true});
     let ret = "";
     let url = ".";
-
     if(this.state.mode === "url") {
       url = url+"/url/sentiment?url="+document.getElementById("textinput").value;
     } else {
@@ -47,7 +47,7 @@ class App extends React.Component {
     ret.then((response)=>{
 
       //Include code here to check the sentiment and fomrat the data accordingly
-
+	  
       this.setState({sentimentOutput:response.data});
       let output = response.data;
       if(response.data === "positive") {
